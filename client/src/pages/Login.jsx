@@ -11,7 +11,7 @@ const Login = () => {
     const password = e.target.password.value;
 
     // Dummy credentials for testing
-    const validUsername = 'admin';
+    const validUsername = 'guest';
     const validPassword = '1234';
 
     if (username === validUsername && password === validPassword) {
