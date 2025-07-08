@@ -5,9 +5,7 @@ import Footer from "../components/Footer.jsx";
 const Dashboard = () => {
   return (
     <div className="flex h-screen bg-gray-100">
-      <Sidebar />
       <div className="flex flex-col flex-1">
-        <Navbar />
         <main className="p-6 flex-1 overflow-y-auto">
           <h2 className="text-2xl text-center mb-6">Dashboard</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">

@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import NewTicket from "./pages/NewTicket.jsx";
 import MyTicket from "./pages/MyTicket.jsx";
 import ProtectedRoute from "./utils/ProtectedRoute.jsx";
+import Layout from "./components/Layout.jsx"; // ✅ Import Layout
 
 function App() {
   return (
@@ -15,33 +16,20 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
 
-      {/* Protected routes */}
+      {/* Protected layout with nested routes */}
       <Route
-        path="/dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <Layout />
           </ProtectedRoute>
         }
-      />
-      <Route
-        path="/new-ticket"
-        element={
-          <ProtectedRoute>
-            <NewTicket />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/my-ticket"
-        element={
-          <ProtectedRoute>
-            <MyTicket />
-          </ProtectedRoute>
-        }
-      />
+      >
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/new-ticket" element={<NewTicket />} />
+        <Route path="/my-ticket" element={<MyTicket />} />
+      </Route>
 
-      {/* Redirect root path */}
+      {/* Redirect unknown or root path */}
       <Route path="/" element={<Navigate to="/login" replace />} />
     </Routes>
   );
